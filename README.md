@@ -1,16 +1,18 @@
-# grunt-boilerplate
+![Webeleven Logo](https://www.webeleven.com.br/img/logo_w11_barra.png)
+
+# grunt.js boilerplate
 Boilerplate do Grunt.js para projetos internos
 
 
 ## Inicializando o boilerplate
 De um git clone neste repositório:
 ```
-git clone https://github.com/w11-ccampos/grunt-boilerplate.git
+$ git clone https://github.com/w11-ccampos/grunt-boilerplate.git
 ```
 
 Navegue até a pasta com o terminal e instale as depêndencias com o npm:
 ```
-npm install
+$ npm install
 ```
 
 Pronto!
@@ -22,7 +24,7 @@ Todo o código javascript que você escrever deverá ser colocado dentro da past
 
 Utilize este comando para que qualquer alteração feita no seu código seja compilada automaticamente:
 ```
-grunt watch:js
+$ grunt watch:js
 ```
 
 ### CSS
@@ -31,7 +33,7 @@ Este boilerplate utiliza o [Sass](http://sass-lang.com/) como linguagem de CSS. 
 
 Utilize este comando para que qualquer alteração feita no seu código seja compilada automaticamente:
 ```
-grunt watch:css
+$ grunt watch:css
 ```
 
 ### Bibliotecas
@@ -41,7 +43,7 @@ Ao invés de baixar manualmente seus arquivos e adicioná-los ao versionamento, 
 
 Para procurar um pacote utilize o comando:
 ```
-bower search bootstrap
+$ bower search bootstrap
 ```
 
 Procure nos resultados o pacote desejado:
@@ -58,13 +60,13 @@ bootstrap.ui https://github.com/visionappscz/bootstrap-ui.git
 
 Instale o pacote:
 ```
-bower install bootstrap --save
+$ bower install bootstrap --save
 ```
 
 Todos os pacotes instalados pelo bower irão para a pasta 
 > assets/vendor/{nomedopacote}, no caso assets/vendor/bootstrap
 
-Para juntar o conteúdo da biblioteca com os seus arquivos, adicione o caminho dos arquivos dentro do arquivo GruntFile.js modificando os seguintes trechos:
+Para juntar o conteúdo da biblioteca com os seus arquivos, adicione o caminho dos arquivos dentro do arquivo gruntfile.js modificando os seguintes trechos:
 ```
   vendorJS: [
     "bootstrap/dist/js/boostrap.js"
@@ -74,6 +76,29 @@ Para juntar o conteúdo da biblioteca com os seus arquivos, adicione o caminho d
     "bootstrap/dist/css/bootstrap.css"
   ]
 ```
+Em seguida, execute o seguinte comando para recompilar as bibliotecas baixadas:
+```
+$ grunt vendor
+```
 
-**Importante!** Toda vez que o gruntfile.js for modificado para adicionar algum arquivo incluido pelo bower, execute este comando:
+### Pastas adicionais (imagens, fontes, etc)
+Para mover qualquer pasta para a pasta de distribuição, modifique o trecho abaixo dentro do arquivo gruntfile.js.
+```
+foldersToMove: [
+  "assets/vendor/bootstrap/dist/fonts",
+  "assets/app/pastaparamover",
+  "assets/app/images"
+]
+```
+Em seguida, execute o seguinte comando para que o grunt copie as pastas:
+```
+$ grunt vendor
+```
+
+
+### Distribuição
+Todos os arquivos serão processados, compilados e minificados a partir da pasta **assets/** e movidos para a pasta **dist/**.
+Para ver a versão de distribuição execute o comando:
+```
+$ grunt dist
 ```
