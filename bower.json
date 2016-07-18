@@ -1,0 +1,25 @@
+{
+  "name": "grunt-webeleven",
+  "description": "Boilerplate do grunt",
+  "main": "index.js",
+  "authors": [
+    "Webeleven"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "grunt",
+    "boilerplate",
+    "webeleven"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
